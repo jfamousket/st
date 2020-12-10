@@ -1,25 +1,10 @@
-### Note
-There seems to be some evidence suggesting that some of the people responsible at suckless e.V. are sympathizing with far-right ideas and Neo-nazi symbols [[1](https://twitter.com/pid_eins/status/1113738769289625602?lang=en), [2](https://chaos.social/@raichoo/101880564196043164)]. If you like this patch, please consider donating to an organization that fights xenophobia and antisemitism (e.g. [schwarz-rot-bunt (German)](https://schwarz-rot-bunt.de/ziele/) or similar organizations).
+## Suckless ST
 
-### Patches
-This repository contains the latest version of the `alpha-focus` and the `vim`
-patches for suckless simple terminal (`st`) merged with other useful patches 
-in my personal `st` build.
-This repository can be cloned in order to try out one of the aforementioned
-patches in a functional environment. It also serves to port the patches to
-new versions of `st` and thus holds the most recent releases in the release
-page. Pull requests are to be issued in the development repositories for 
-[vim browse](https://github.com/juliusHuelsmann/st-history-vim) and
-[alpha focus](https://github.com/juliusHuelsmann/st-focus) respectively.
+***Original fork of [juliusHuelsmann/st](https://github.com/juliusHuelsmann/st) see the [README](https://github.com/juliusHuelsmann/st/blob/full_0.8.4/README.md) for more***
 
-**Vim Browse** adds history-functionality to the terminal, and allows to -- among
-other things -- select, yank, search it via keyboard using vim-like motions and
-operations. It operates on top of the `st-history` patch, which can be
-configured with a set of optional patches.
-The **Alpha Focus Highlight** patch applies transparency to the configured 
-background, and allows to use different transparency levels and background 
-colors for focused and unfocused windows. 
-This patch requires a running X composite manager.
+### Extra Patches
+
+**[Font2](https://st.suckless.org/patches/font2)** This patch allows to add spare font besides default. Some glyphs can be not present in default font. For this glyphs st uses font-config and try to find them in font cache first. This patch append fonts defined in font2 variable to the beginning of font cache. So they will be used first for glyphs that absent in default font.
 
 ## Build process
 
@@ -63,18 +48,4 @@ xrdb -merge $HOME/.Xresources
 ```
 
 You also need to make sure that your composite manager is launched on startup.
-
-## Patching and Documentation
-The patches are released [here](https://github.com/juliusHuelsmann/st/releases).
-Documentation on how to use the patches can be found in the dev repositories
--  [st-focus](https://github.com/juliusHuelsmann/st-focus)
--  [st-history-vim](https://github.com/juliusHuelsmann/st-history-vim)
-and in the [wiki](https://github.com/juliusHuelsmann/st-history-vim/wiki/Vim-browse-manual) of the vim-patch repo.
-
-Patches can be applied to `st`'s source code via
-```bash
-patch < [PATCH_NAME]
-```
-and then build as usual (e.g. after removing the old `config.h` file).
-
 
